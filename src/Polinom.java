@@ -125,8 +125,8 @@ public class Polinom {
         return new Polinom(toString(p1)).sum(new Polinom(toString(p2)));
     }
 
-    public Polinom multiply(Polinom str1, Polinom str2) {
-        int[] p1 = transformation(str1.str);
+    public Polinom multiply(Polinom str2) {
+        int[] p1 = transformation(this.str);
         int[] p2 = transformation(str2.str);
         int newPower= p1.length - 1 + p2.length - 1;
         int [] pNew = new int[newPower+1];
@@ -156,14 +156,14 @@ public class Polinom {
                 if (count > 1) monomial = coefficient + "x^" + power;
                 else if (count == 1) monomial = coefficient + "x";
                 else if (count == 0) monomial = coefficient + "";
-                p1 = transformation(new Polinom(toString(p1)).minus( multiply(new Polinom(toString(p2)), new Polinom(monomial))).str);
+                p1 = transformation(new Polinom(toString(p1)).minus(new Polinom(toString(p2)).multiply(new Polinom(monomial))).str);
             }
             return new Polinom(toString(result));
         }
     }
 
     public Polinom remainder(Polinom str1, Polinom str2) {
-        return str1.minus(multiply(str2, divide(str1, str2)));
+        return str1.minus(str2.multiply(divide(str1, str2)));
     }
 
     private String toString(int[] array) {
