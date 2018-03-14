@@ -15,11 +15,20 @@ public class Polinom {
     static private int[] transformation(String str) {
         if (!str.contains("x")) {
             return new int[]{Integer.parseInt(str)};
-        } else if (str.matches("x\\^\\d+") || str.matches("\\d+x") ||  str.matches("-?x[+-]?\\d*")) {
-            if (str.matches("x\\^\\d+")) {
-                String[] parts = str.split("x\\^");
+        } else if (str.matches("x\\^\\d+[+-]?\\d*") || str.matches("\\d+x") ||  str.matches("-?x[+-]?\\d*")) {
+            int a0 = 0;
+            if (str.matches("x\\^\\d+[+-]?\\d*")) {
+                String[] parts;
+                if (str.contains("+") || str.contains("-")) {
+                    parts = str.split("[+-]\\d+")[0].split("x\\^");
+                    a0 = Integer.parseInt(str.split("x\\^\\d+")[1]);
+                } else {
+                    parts = str.split("x\\^");
+                    a0 = 0;
+                }
                 int[] coefficients = new int[Integer.parseInt(parts[1]) + 1];
                 coefficients[Integer.parseInt(parts[1])] = 1;
+                coefficients[0] = a0;
                 return coefficients;
             } else if (str.matches("\\d+x")) {
                 String[] parts = str.split("x");
@@ -27,7 +36,6 @@ public class Polinom {
                 coefficients[1] = Integer.parseInt(parts[0]);
                 return coefficients;
             } else {
-                int a0 = 0;
                 if (str.split("x").length == 2) {
                     a0 = Integer.parseInt(str.split("x")[1]);
                 }

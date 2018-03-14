@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3c1264f-ef65-4a13-baa4-e1b14222d5da" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Polinom/src/sample/Controller.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Polinom/src/sample/Main.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Polinom/src/sample/sample.fxml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Polinom/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Polinom/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Polinom/polinom.iml" afterPath="$PROJECT_DIR$/../Polinom/polinom.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Polinom/src/Polinom.java" afterPath="$PROJECT_DIR$/../Polinom/src/Polinom.java" />
     </list>
     <ignored path="$PROJECT_DIR$/../polinom/out/" />
@@ -22,25 +18,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Polinom.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Polinom.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Polinom/src/Polinom.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-816">
-              <caret line="38" column="16" lean-forward="false" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+            <state relative-caret-position="51">
+              <caret line="94" column="44" lean-forward="false" selection-start-line="94" selection-start-column="44" selection-end-line="94" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6253#6254#0" expanded="true" />
-                <element signature="e#6322#6323#0" expanded="true" />
+                <element signature="e#6602#6603#0" expanded="true" />
+                <element signature="e#6671#6672#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PolinomTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PolinomTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../Polinom/tests/PolinomTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="234">
+              <caret line="42" column="21" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -149,7 +145,27 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.PolinomTest.sum">
+  <component name="RunManager" selected="JUnit.PolinomTest.minus">
+    <configuration name="PolinomTest.minus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="polinom" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PolinomTest" />
+      <option name="METHOD_NAME" value="minus" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
     <configuration name="PolinomTest.sum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="polinom" />
@@ -271,14 +287,16 @@
       <properties />
       <listeners />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="JUnit.PolinomTest.valuePolinom" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.PolinomTest.sum" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.PolinomTest.minus" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.PolinomTest.sum" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.PolinomTest.valuePolinom" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.PolinomTest.minus" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.PolinomTest.sum" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.PolinomTest.valuePolinom" />
       </list>
     </recent_temporary>
   </component>
@@ -296,37 +314,45 @@
       <option name="presentableId" value="Default" />
       <updated>1519556806387</updated>
     </task>
+    <task id="LOCAL-00001" summary="fdg">
+      <created>1521057622319</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1521057622319</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PolinomTest_sum - 2018.03.15 at 00h 59m 44s.xml">
+    <history-entry file="PolinomTest_minus - 2018.03.15 at 01h 45m 39s.xml">
+      <configuration name="PolinomTest.minus" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PolinomTest_sum - 2018.03.15 at 01h 44m 01s.xml">
       <configuration name="PolinomTest.sum" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PolinomTest_valuePolinom - 2018.03.15 at 00h 50m 28s.xml">
+    <history-entry file="PolinomTest_sum - 2018.03.15 at 01h 44m 19s.xml">
+      <configuration name="PolinomTest.sum" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PolinomTest_sum - 2018.03.15 at 01h 44m 39s.xml">
+      <configuration name="PolinomTest.sum" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PolinomTest_sum - 2018.03.15 at 01h 45m 22s.xml">
+      <configuration name="PolinomTest.sum" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PolinomTest_valuePolinom - 2018.03.15 at 01h 24m 57s.xml">
       <configuration name="PolinomTest.valuePolinom" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PolinomTest_valuePolinom - 2018.03.15 at 00h 51m 27s.xml">
+    <history-entry file="PolinomTest_valuePolinom - 2018.03.15 at 01h 25m 06s.xml">
       <configuration name="PolinomTest.valuePolinom" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PolinomTest_valuePolinom - 2018.03.15 at 00h 51m 55s.xml">
+    <history-entry file="PolinomTest_valuePolinom - 2018.03.15 at 01h 25m 22s.xml">
       <configuration name="PolinomTest.valuePolinom" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PolinomTest_valuePolinom - 2018.03.15 at 00h 54m 43s.xml">
+    <history-entry file="PolinomTest_valuePolinom - 2018.03.15 at 01h 43m 03s.xml">
       <configuration name="PolinomTest.valuePolinom" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PolinomTest_valuePolinom - 2018.03.15 at 00h 56m 02s.xml">
-      <configuration name="PolinomTest.valuePolinom" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PolinomTest_valuePolinom - 2018.03.15 at 00h 56m 56s.xml">
-      <configuration name="PolinomTest.valuePolinom" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PolinomTest_valuePolinom - 2018.03.15 at 00h 57m 30s.xml">
-      <configuration name="PolinomTest.valuePolinom" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PolinomTest_valuePolinom - 2018.03.15 at 00h 57m 42s.xml">
-      <configuration name="PolinomTest.valuePolinom" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PolinomTest_valuePolinom - 2018.03.15 at 00h 59m 25s.xml">
+    <history-entry file="PolinomTest_valuePolinom - 2018.03.15 at 01h 43m 52s.xml">
       <configuration name="PolinomTest.valuePolinom" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -343,7 +369,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31323722" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28178245" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -365,9 +391,13 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fdg" />
+    <option name="LAST_COMMIT_MESSAGE" value="fdg" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -378,8 +408,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6253#6254#0" expanded="true" />
-            <element signature="e#6322#6323#0" expanded="true" />
+            <element signature="e#6602#6603#0" expanded="true" />
+            <element signature="e#6671#6672#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -400,8 +430,8 @@
           <caret line="42" column="22" lean-forward="false" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6253#6254#0" expanded="true" />
-            <element signature="e#6322#6323#0" expanded="true" />
+            <element signature="e#6602#6603#0" expanded="true" />
+            <element signature="e#6671#6672#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -422,8 +452,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6253#6254#0" expanded="true" />
-            <element signature="e#6322#6323#0" expanded="true" />
+            <element signature="e#6602#6603#0" expanded="true" />
+            <element signature="e#6671#6672#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -434,8 +464,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6253#6254#0" expanded="true" />
-            <element signature="e#6322#6323#0" expanded="true" />
+            <element signature="e#6602#6603#0" expanded="true" />
+            <element signature="e#6671#6672#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -457,8 +487,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6253#6254#0" expanded="true" />
-            <element signature="e#6322#6323#0" expanded="true" />
+            <element signature="e#6602#6603#0" expanded="true" />
+            <element signature="e#6671#6672#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -480,8 +510,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6253#6254#0" expanded="true" />
-            <element signature="e#6322#6323#0" expanded="true" />
+            <element signature="e#6602#6603#0" expanded="true" />
+            <element signature="e#6671#6672#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -503,8 +533,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6253#6254#0" expanded="true" />
-            <element signature="e#6322#6323#0" expanded="true" />
+            <element signature="e#6602#6603#0" expanded="true" />
+            <element signature="e#6671#6672#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -515,8 +545,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6253#6254#0" expanded="true" />
-            <element signature="e#6322#6323#0" expanded="true" />
+            <element signature="e#6602#6603#0" expanded="true" />
+            <element signature="e#6671#6672#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -527,8 +557,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6253#6254#0" expanded="true" />
-            <element signature="e#6322#6323#0" expanded="true" />
+            <element signature="e#6602#6603#0" expanded="true" />
+            <element signature="e#6671#6672#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -539,8 +569,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6253#6254#0" expanded="true" />
-            <element signature="e#6322#6323#0" expanded="true" />
+            <element signature="e#6602#6603#0" expanded="true" />
+            <element signature="e#6671#6672#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -551,8 +581,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6253#6254#0" expanded="true" />
-            <element signature="e#6322#6323#0" expanded="true" />
+            <element signature="e#6602#6603#0" expanded="true" />
+            <element signature="e#6671#6672#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -618,24 +648,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Polinom/tests/PolinomTest.java">
+    <entry file="file://$PROJECT_DIR$/../Polinom/src/Polinom.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="51">
+          <caret line="94" column="44" lean-forward="false" selection-start-line="94" selection-start-column="44" selection-end-line="94" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#6602#6603#0" expanded="true" />
+            <element signature="e#6671#6672#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Polinom/src/Polinom.java">
+    <entry file="file://$PROJECT_DIR$/../Polinom/tests/PolinomTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-816">
-          <caret line="38" column="16" lean-forward="false" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+        <state relative-caret-position="234">
+          <caret line="42" column="21" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6253#6254#0" expanded="true" />
-            <element signature="e#6322#6323#0" expanded="true" />
           </folding>
         </state>
       </provider>
