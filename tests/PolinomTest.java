@@ -9,6 +9,8 @@ class PolinomTest {
         assertEquals(-1, new Polinom("-1").valuePolinom(1));
         assertEquals(0, new Polinom("0").valuePolinom(10));
         assertEquals(6, new Polinom("x-10").valuePolinom(16));
+        assertEquals(4, new Polinom("3x-2").valuePolinom(2));
+        assertEquals(-6, new Polinom("-3x").valuePolinom(2));
         assertEquals(4, new Polinom("x").valuePolinom(4));
         assertEquals(-4, new Polinom("-x").valuePolinom(4));
         assertEquals(6, new Polinom("2x").valuePolinom(3));
@@ -41,14 +43,31 @@ class PolinomTest {
 
     @Test
     void multiply() {
+        assertEquals(new Polinom("0"), new Polinom("x^2+1").multiply(new Polinom("0")));
+        assertEquals(new Polinom("0"), new Polinom("1").multiply(new Polinom("0")));
+        assertEquals(new Polinom("x"), new Polinom("x").multiply(new Polinom("1")));
+        assertEquals(new Polinom("x^2-1"), new Polinom("x-1").multiply(new Polinom("x+1")));
+        assertEquals(new Polinom("6x^2+11x-10"), new Polinom("3x-2").multiply(new Polinom("2x+5")));
+        assertEquals(new Polinom("x^6+3x^5-2x^4-4x^3+21x^2+10x-35"), new Polinom("x^3-2x+7").multiply(new Polinom("x^3+3x^2-5")));
     }
 
     @Test
     void divide() {
+        assertEquals(new Polinom("0"), new Polinom("x-3").divide(new Polinom("x^2+1")));
+        assertEquals(new Polinom("x"), new Polinom("x").divide(new Polinom("1")));
+        assertEquals(new Polinom("3x-2"), new Polinom("6x^2+11x-10").divide(new Polinom("2x+5")));
+        assertEquals(new Polinom("2x+5"), new Polinom("6x^2+11x-10").divide(new Polinom("3x-2")));
+        assertEquals(new Polinom("2x^2-4x+1"), new Polinom("2x^4-10x^3+23x^2-22x-3").divide(new Polinom("x^2-3x+5")));
+        assertEquals(new Polinom("x^3-2x+7"), new Polinom("x^6+3x^5-2x^4-4x^3+21x^2+10x-35").divide(new Polinom("x^3+3x^2-5")));
     }
 
     @Test
     void remainder() {
+        assertEquals(new Polinom("x-3"), new Polinom("x-3").remainder(new Polinom("x^2+1")));
+        assertEquals(new Polinom("0"), new Polinom("x").remainder(new Polinom("1")));
+        assertEquals(new Polinom("0"), new Polinom("6x^2+11x-10").remainder(new Polinom("2x+5")));
+        assertEquals(new Polinom("x-8"), new Polinom("2x^4-10x^3+23x^2-22x-3").remainder(new Polinom("x^2-3x+5")));
+        assertEquals(new Polinom("0"), new Polinom("x^6+3x^5-2x^4-4x^3+21x^2+10x-35").remainder(new Polinom("x^3+3x^2-5")));
     }
 
     @Test

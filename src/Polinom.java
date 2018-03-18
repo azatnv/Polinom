@@ -14,8 +14,8 @@ public class Polinom {
 
     static private int[] transformation(String str) {
         if (!str.contains("x")) {
-            return new int[]{Integer.parseInt(str)};
-        } else if (str.matches("x\\^\\d+[+-]?\\d*") || str.matches("\\d+x") ||  str.matches("-?x[+-]?\\d*")) {
+            return new int[] {Integer.parseInt(str)};
+        } else if (str.matches("x\\^\\d+[+-]?\\d*") || str.matches("-?\\d*x[+-]?\\d*")) {
             int a0 = 0;
             if (str.matches("x\\^\\d+[+-]?\\d*")) {
                 String[] parts;
@@ -30,18 +30,19 @@ public class Polinom {
                 coefficients[Integer.parseInt(parts[1])] = 1;
                 coefficients[0] = a0;
                 return coefficients;
-            } else if (str.matches("\\d+x")) {
-                String[] parts = str.split("x");
-                int [] coefficients = new int[2];
-                coefficients[1] = Integer.parseInt(parts[0]);
-                return coefficients;
             } else {
-                if (str.split("x").length == 2) {
-                    a0 = Integer.parseInt(str.split("x")[1]);
-                }
-                if (str.contains("-x")) return new int[] {a0, -1};
+                if (str.matches("x"))
+                    return new int[] {0, 1};
                 else {
-                    return new int[] {a0, 1};
+                    String[] parts = str.split("x");
+                    int a1;
+                    if (Objects.equals(parts[0], "")) a1=1;
+                    else if (Objects.equals(parts[0], "-")) a1 = -1;
+                    else a1 = Integer.parseInt(parts[0]);
+                    if (parts.length == 2) {
+                        a0 = Integer.parseInt(parts[1]);
+                    } else a0 = 0;
+                    return new int[] {a0, a1};
                 }
             }
         } else {
@@ -128,6 +129,8 @@ public class Polinom {
     public Polinom multiply(Polinom str2) {
         int[] p1 = transformation(this.str);
         int[] p2 = transformation(str2.str);
+        if ((p1.length == 1 && p1[0] == 0) || (p2.length == 1 && p2[0] == 0))
+            return new Polinom("0");
         int newPower= p1.length - 1 + p2.length - 1;
         int [] pNew = new int[newPower+1];
         for (int i = 0; i < p1.length; i++) {
@@ -138,32 +141,38 @@ public class Polinom {
         return new Polinom(toString(pNew));
     }
 
-    public Polinom divide(Polinom str1, Polinom str2) {
-        int[] p1 = transformation(str1.str);
+    public Polinom divide(Polinom str2) {
+        int[] p1 = transformation(this.str);
         int[] p2 = transformation(str2.str);
+        if (p2.length == 1 && p2[0] == 0)
+            throw new NumberFormatException("На 0 делить нельзя!");
         if (p1.length < p2.length) {
             return new Polinom(toString(new int[] {0}));
         } else {
             int[] result = new int[p1.length-p2.length+1];
             int power;
             int coefficient;
-            String monomial = "";
-            while (p1.length>=p2.length) {
+            String monomial;
+            while (p1.length >= p2.length) {
                 power = p1.length - p2.length;
-                int count = power;
                 coefficient = p1[p1.length-1]/p2[p2.length-1];
                 result[power]=coefficient;
-                if (count > 1) monomial = coefficient + "x^" + power;
-                else if (count == 1) monomial = coefficient + "x";
-                else if (count == 0) monomial = coefficient + "";
+                if (power != 0) {
+                    if (coefficient == 1) monomial = "";
+                    else if (coefficient == -1) monomial = "-";
+                    else monomial = coefficient + "";
+                    if (power > 1) monomial += "x^" + power;
+                    else monomial += "x";
+                } else monomial = coefficient + "";
                 p1 = transformation(new Polinom(toString(p1)).minus(new Polinom(toString(p2)).multiply(new Polinom(monomial))).str);
+                if (p1.length == 1 && p1[0] == 0) break;
             }
             return new Polinom(toString(result));
         }
     }
 
-    public Polinom remainder(Polinom str1, Polinom str2) {
-        return str1.minus(str2.multiply(divide(str1, str2)));
+    public Polinom remainder(Polinom str2) {
+        return this.minus(str2.multiply(this.divide(str2)));
     }
 
     private String toString(int[] array) {
