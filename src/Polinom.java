@@ -176,47 +176,47 @@ public class Polinom {
     }
 
     private String toString(int[] array) {
-        String result = "";
+        StringBuffer result = new StringBuffer();
         for (int i=array.length-1; i>=0 ; i--) {
             if (i>1 && array[i] != 0) {
                 if (array[i] == 1 || array[i] == -1) {
                     if (i == array.length-1 && array[i] == 1)
-                        result+="x^"+i;
-                    else if (array[i] == 1) result+="+x^"+i;
-                    else result+="-x^"+i;
+                        result.append("x^").append(i);
+                    else if (array[i] == 1) result.append("+x^").append(i);
+                    else result.append("-x^").append(i);
                 } else {
                     if (i == array.length - 1 && array[i] > 1) {
-                        result += array[i] + "x^" + i;
+                        result.append(array[i]).append("x^").append(i);
                     } else if (array[i] > 0)
-                        result += "+" + array[i] + "x^" + i;
-                    else result += array[i] + "x^" + i;
+                        result.append("+").append(array[i]).append("x^").append(i);
+                    else result.append(array[i]).append("x^").append(i);
                 }
             }
             if (i == 1 && array[i] != 0) {
                 if (array[i] == 1 || array[i] == -1) {
                     if (i == array.length-1 && array[i] == 1)
-                        result+="x";
-                    else if (array[i] == 1) result+="+x";
-                    else result+="-x";
+                        result.append("x");
+                    else if (array[i] == 1) result.append("+x");
+                    else result.append("-x");
                 } else {
                     if (i == array.length - 1 && array[i] > 1) {
-                        result += array[i] + "x";
+                        result.append(array[i]).append("x");
                     } else if (array[i] > 0)
-                        result += "+" + array[i] + "x";
-                    else result += array[i] + "x";
+                        result.append("+").append(array[i]).append("x");
+                    else result.append(array[i]).append("x");
                 }
             }
             if (i==0) {
                 if (i == array.length - 1 && array[i] == 0) {
-                    result+="0";
+                    result.append("0");
                 } else {
                     if (i == array.length - 1 || array[i] < 0) {
-                        result += array[i];
-                    } else if (array[i] != 0) result += "+" + array[i];
+                        result.append(array[i]);
+                    } else if (array[i] != 0) result.append("+").append(array[i]);
                 }
             }
         }
-        return result;
+        return result.toString();
     }
 
     @Override
@@ -225,12 +225,11 @@ public class Polinom {
             Polinom other = (Polinom) obj;
             int[] array1 = transformation(str);
             int[] array2 = transformation(other.str);
-            boolean flag = true;
             if (array1.length == array2.length) {
                 for (int i = 0; i < array1.length; i++)
-                    if (array1[i] != array2[i]) flag = false;
+                    if (array1[i] != array2[i]) return false;
             } else return false;
-            return flag;
+            return true;
         }
         return false;
     }
