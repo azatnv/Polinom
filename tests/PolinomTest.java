@@ -24,59 +24,58 @@ class PolinomTest {
 
     @Test
     void sum() {
-        assertEquals(new Polinom("1"), new Polinom("0").sum(new Polinom("1")));
-        assertEquals(new Polinom("x"), new Polinom("x").sum(new Polinom("0")));
-        assertEquals(new Polinom("2x"), new Polinom("x").sum(new Polinom("x")));
-        assertEquals(new Polinom("5x^3"), new Polinom("5x^3-x+10").sum(new Polinom("x-10")));
-        assertEquals(new Polinom("0"), new Polinom("x").sum(new Polinom("-x")));
-        assertEquals(new Polinom("0"), new Polinom("x^3-1").sum(new Polinom("-x^3+1")));
+        assertEquals(new Polinom(new int[] {1}), new Polinom(new int[] {0}).sum(new Polinom(new int[] {1})));
+        assertEquals(new Polinom(new int[] {0, 1}), new Polinom(new int[] {0, 1}).sum(new Polinom(new int[] {0})));
+        assertEquals(new Polinom(new int[] {0, 2}), new Polinom(new int[] {0, 1}).sum(new Polinom(new int[] {0, 1})));
+        assertEquals(new Polinom(new int[] {0, 0, 0, 5}), new Polinom(new int[] {10, -1, 0, 5}).sum(new Polinom(new int[] {-10, 1})));
+        assertEquals(new Polinom(new int[] {0}), new Polinom(new int[] {0, 1}).sum(new Polinom(new int[] {0, -1})));
+        assertEquals(new Polinom(new int[] {0}), new Polinom(new int[] {-1, 0, 0, 1}).sum(new Polinom(new int[] {1, 0, 0, -1})));
     }
 
     @Test
     void minus() {
-        assertEquals(new Polinom("1"), new Polinom("1").minus(new Polinom("0")));
-        assertEquals(new Polinom("x"), new Polinom("x").minus(new Polinom("0")));
-        assertEquals(new Polinom("0"), new Polinom("x").minus(new Polinom("x")));
-        assertEquals(new Polinom("5x^3"), new Polinom("5x^3-x+10").minus(new Polinom("-x+10")));
-        assertEquals(new Polinom("0"), new Polinom("x^3-1").minus(new Polinom("x^3-1")));
+        assertEquals(new Polinom(new int[] {1}), new Polinom(new int[] {1}).minus(new Polinom(new int[] {0})));
+        assertEquals(new Polinom(new int[] {0, 1}), new Polinom(new int[] {0, 1}).minus(new Polinom(new int[] {0})));
+        assertEquals(new Polinom(new int[] {0}), new Polinom(new int[] {0, 1}).minus(new Polinom(new int[] {0, 1})));
+        assertEquals(new Polinom(new int[] {0, 0, 0, 5}), new Polinom(new int[] {10, -1, 0, 5}).minus(new Polinom(new int[] {10, -1})));
+        assertEquals(new Polinom(new int[] {0}), new Polinom(new int[] {-1, 0, 0, 1}).minus(new Polinom(new int[] {-1, 0, 0, 1})));
     }
 
     @Test
     void multiply() {
-        assertEquals(new Polinom("0"), new Polinom("x^2+1").multiply(new Polinom("0")));
-        assertEquals(new Polinom("0"), new Polinom("1").multiply(new Polinom("0")));
-        assertEquals(new Polinom("x"), new Polinom("x").multiply(new Polinom("1")));
-        assertEquals(new Polinom("x^2-1"), new Polinom("x-1").multiply(new Polinom("x+1")));
-        assertEquals(new Polinom("6x^2+11x-10"), new Polinom("3x-2").multiply(new Polinom("2x+5")));
-        assertEquals(new Polinom("x^6+3x^5-2x^4-4x^3+21x^2+10x-35"), new Polinom("x^3-2x+7").multiply(new Polinom("x^3+3x^2-5")));
+        assertEquals(new Polinom(new int[] {0}), new Polinom(new int[] {1, 0, 1}).multiply(new Polinom(new int[] {0})));
+        assertEquals(new Polinom(new int[] {0}), new Polinom(new int[] {1}).multiply(new Polinom(new int[] {0})));
+        assertEquals(new Polinom(new int[] {0, 1}), new Polinom(new int[] {0, 1}).multiply(new Polinom(new int[] {1})));
+        assertEquals(new Polinom(new int[] {-1, 0, 1}), new Polinom(new int[] {-1, 1}).multiply(new Polinom(new int[] {1, 1})));
+        assertEquals(new Polinom(new int[] {-10, 11, 6}), new Polinom(new int[] {-2, 3}).multiply(new Polinom(new int[] {5, 2})));
+        assertEquals(new Polinom(new int[] {-35, 10, 21, -4, -2, 3, 1}), new Polinom(new int[] {7, -2, 0, 1}).multiply(new Polinom(new int[] {-5, 0, 3, 1})));
     }
-
     @Test
     void divide() {
-        assertEquals(new Polinom("0"), new Polinom("x-3").divide(new Polinom("x^2+1")));
-        assertEquals(new Polinom("x"), new Polinom("x").divide(new Polinom("1")));
-        assertEquals(new Polinom("3x-2"), new Polinom("6x^2+11x-10").divide(new Polinom("2x+5")));
-        assertEquals(new Polinom("2x+5"), new Polinom("6x^2+11x-10").divide(new Polinom("3x-2")));
-        assertEquals(new Polinom("2x^2-4x+1"), new Polinom("2x^4-10x^3+23x^2-22x-3").divide(new Polinom("x^2-3x+5")));
-        assertEquals(new Polinom("x^3-2x+7"), new Polinom("x^6+3x^5-2x^4-4x^3+21x^2+10x-35").divide(new Polinom("x^3+3x^2-5")));
+        assertEquals(new Polinom(new int[] {0}), new Polinom(new int[] {-3, 1}).divide(new Polinom(new int[] {1, 0, 1})));
+        assertEquals(new Polinom(new int[] {0, 1}), new Polinom(new int[] {0, 1}).divide(new Polinom(new int[] {1})));
+        assertEquals(new Polinom(new int[] {-2, 3}), new Polinom(new int[] {-10, 11, 6}).divide(new Polinom(new int[] {5, 2})));
+        assertEquals(new Polinom(new int[] {5, 2}), new Polinom(new int[] {-10, 11, 6}).divide(new Polinom(new int[] {-2, 3})));
+        assertEquals(new Polinom(new int[] {1, -4, 2}), new Polinom(new int[] {-3, -22, 23, -10, 2}).divide(new Polinom(new int[] {5, -3, 1})));
+        assertEquals(new Polinom(new int[] {7, -2, 0, 1}), new Polinom(new int[] {-35, 10, 21, -4, -2, 3, 1}).divide(new Polinom(new int[] {-5, 0, 3, 1})));
     }
 
     @Test
     void remainder() {
-        assertEquals(new Polinom("x-3"), new Polinom("x-3").remainder(new Polinom("x^2+1")));
-        assertEquals(new Polinom("0"), new Polinom("x").remainder(new Polinom("1")));
-        assertEquals(new Polinom("0"), new Polinom("6x^2+11x-10").remainder(new Polinom("2x+5")));
-        assertEquals(new Polinom("x-8"), new Polinom("2x^4-10x^3+23x^2-22x-3").remainder(new Polinom("x^2-3x+5")));
-        assertEquals(new Polinom("0"), new Polinom("x^6+3x^5-2x^4-4x^3+21x^2+10x-35").remainder(new Polinom("x^3+3x^2-5")));
+        assertEquals(new Polinom(new int[] {-3, 1}), new Polinom(new int[] {-3, 1}).remainder(new Polinom(new int[] {1, 0, 1})));
+        assertEquals(new Polinom(new int[] {0}), new Polinom(new int[] {0, 1}).remainder(new Polinom(new int[] {1})));
+        assertEquals(new Polinom(new int[] {0}), new Polinom(new int[] {-10, 11, 6}).remainder(new Polinom(new int[] {5, 2})));
+        assertEquals(new Polinom(new int[] {-8, 1}), new Polinom(new int[] {-3, -22, 23, -10, 2}).remainder(new Polinom(new int[] {5, -3, 1})));
+        assertEquals(new Polinom(new int[] {0}), new Polinom(new int[] {-35, 10, 21, -4, -2, 3, 1}).remainder(new Polinom(new int[] {-5, 0, 3, 1})));
     }
 
     @Test
     void equals() {
-        assertTrue(new Polinom("x").equals(new Polinom("x")));
-        assertTrue(new Polinom("x+10").equals(new Polinom("x+10")));
-        assertTrue(new Polinom("x^2+3x+10").equals(new Polinom("x^2+3x+10")));
-        assertFalse(new Polinom("x").equals(new Polinom("x^2")));
-        assertFalse(new Polinom("11").equals(new Polinom("10")));
+        assertTrue(new Polinom(new int[] {0, 1}).equals(new Polinom(new int[] {0, 1})));
+        assertTrue(new Polinom(new int[] {10, 1}).equals(new Polinom(new int[] {10, 1})));
+        assertTrue(new Polinom(new int[] {10, 3, 1}).equals(new Polinom(new int[] {10, 3, 1})));
+        assertFalse(new Polinom(new int[] {0, 1}).equals(new Polinom(new int[] {10, 1})));
+        assertFalse(new Polinom(new int[] {10}).equals(new Polinom(new int[] {11})));
     }
 
 }

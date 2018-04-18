@@ -6,10 +6,38 @@ public class Polinom {
 
     private String str;
 
+    private int[] coefficients;
+
+    public Polinom(int[] arg) {
+        coefficients = new int[arg.length];
+        for (int i=0; i < arg.length; i++) {
+            setCoefficient(i, arg[i]);
+        }
+    }
+
+    public int getCoefficient(int power) {
+        if(power > coefficients.length-1){
+            return 0;
+        }
+        return coefficients[power];
+    }
+
+    public void setCoefficient(int power, int value) {
+        coefficients[power] = value;
+    }
+
+    public String getStr() {
+        return toString(this.coefficients);
+    }
+
+    public void setStr(int[] arg) {
+        str = toString(arg);
+    }
+
     public Polinom(String arg) {
         if (!arg.matches("([+-]?\\d*x\\^\\d+)*([+-]?\\d*x)?([+-]?\\d+)?"))
             throw new NumberFormatException("Неправильная форма полинома");
-        else str = arg;
+        else coefficients = transformation(arg);
     }
 
     static private int[] transformation(String str) {
@@ -83,8 +111,7 @@ public class Polinom {
     public int valuePolinom(int value) {
         int result = 0;
         int count = 0;
-        int[] coefficients = transformation(this.str);
-        for (int element: coefficients) {
+        for (int element: this.coefficients) {
             result += element*Math.pow(value, count);
             count++;
         }
@@ -92,8 +119,8 @@ public class Polinom {
     }
 
     public Polinom sum(Polinom str2) {
-        int[] p1 = transformation(this.str);
-        int[] p2 = transformation(str2.str);
+        int[] p1 = this.coefficients;
+        int[] p2 = str2.coefficients;
         if (p1.length == p2.length) {
             int newPower = 0;
             for (int i=p1.length-1; i >= 0 ; i--) {
@@ -106,7 +133,7 @@ public class Polinom {
             for (int i = 0; i <= newPower; i++) {
                 result[i] = p1[i] + p2[i];
             }
-            return new Polinom(toString(result));
+            return new Polinom(result);
         }
         int powerMax = Math.max(p1.length, p2.length);
         int[] result = new int[powerMax];
@@ -114,21 +141,21 @@ public class Polinom {
             if (i<=p1.length-1) result[i]+=p1[i];
             if (i<=p2.length-1) result[i]+=p2[i];
         }
-        return new Polinom(toString(result));
+        return new Polinom(result);
     }
 
     public Polinom minus(Polinom str2) {
-        int[] p1 = transformation(this.str);
-        int[] p2 = transformation(str2.str);
+        int[] p1 = this.coefficients;
+        int[] p2 = str2.coefficients;
         for (int i=0; i<p2.length; i++) {
             p2[i] = -p2[i];
         }
-        return new Polinom(toString(p1)).sum(new Polinom(toString(p2)));
+        return new Polinom(p1).sum(new Polinom(p2));
     }
 
     public Polinom multiply(Polinom str2) {
-        int[] p1 = transformation(this.str);
-        int[] p2 = transformation(str2.str);
+        int[] p1 = this.coefficients;
+        int[] p2 = str2.coefficients;
         if ((p1.length == 1 && p1[0] == 0) || (p2.length == 1 && p2[0] == 0))
             return new Polinom("0");
         int newPower= p1.length - 1 + p2.length - 1;
@@ -138,36 +165,33 @@ public class Polinom {
                 pNew[i + j] +=  p1[i] * p2[j];
             }
         }
-        return new Polinom(toString(pNew));
+        return new Polinom(pNew);
     }
 
-    public Polinom divide(Polinom str2) {
-        int[] p1 = transformation(this.str);
-        int[] p2 = transformation(str2.str);
+    public Polinom divide(Polinom other) {
+        int[] p1 = this.coefficients;
+        int[] p2 = other.coefficients;
         if (p2.length == 1 && p2[0] == 0)
             throw new NumberFormatException("На 0 делить нельзя!");
         if (p1.length < p2.length) {
-            return new Polinom(toString(new int[] {0}));
+            return new Polinom(new int[] {0});
         } else {
             int[] result = new int[p1.length-p2.length+1];
             int power;
             int coefficient;
-            String monomial;
+            int[] monomial;
             while (p1.length >= p2.length) {
                 power = p1.length - p2.length;
                 coefficient = p1[p1.length-1]/p2[p2.length-1];
                 result[power]=coefficient;
                 if (power != 0) {
-                    if (coefficient == 1) monomial = "";
-                    else if (coefficient == -1) monomial = "-";
-                    else monomial = coefficient + "";
-                    if (power > 1) monomial += "x^" + power;
-                    else monomial += "x";
-                } else monomial = coefficient + "";
-                p1 = transformation(new Polinom(toString(p1)).minus(new Polinom(toString(p2)).multiply(new Polinom(monomial))).str);
+                    monomial = new int[power+1];
+                    monomial[power] = coefficient;
+                } else monomial = new int[] {coefficient};
+                p1 = new Polinom(p1).minus(new Polinom(p2).multiply(new Polinom(monomial))).coefficients;
                 if (p1.length == 1 && p1[0] == 0) break;
             }
-            return new Polinom(toString(result));
+            return new Polinom(result);
         }
     }
 
@@ -176,7 +200,7 @@ public class Polinom {
     }
 
     private String toString(int[] array) {
-        StringBuffer result = new StringBuffer();
+        StringBuilder result = new StringBuilder();
         for (int i=array.length-1; i>=0 ; i--) {
             if (i>1 && array[i] != 0) {
                 if (array[i] == 1 || array[i] == -1) {
@@ -223,8 +247,8 @@ public class Polinom {
     public boolean equals(Object obj) {
         if (obj instanceof Polinom) {
             Polinom other = (Polinom) obj;
-            int[] array1 = transformation(str);
-            int[] array2 = transformation(other.str);
+            int[] array1 = this.coefficients;
+            int[] array2 = other.coefficients;
             if (array1.length == array2.length) {
                 for (int i = 0; i < array1.length; i++)
                     if (array1[i] != array2[i]) return false;
